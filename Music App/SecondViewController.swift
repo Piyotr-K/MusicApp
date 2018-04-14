@@ -7,17 +7,126 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SecondViewController: UIViewController {
-
+    var speed:[Float] = [1.0, 2.0, 0.5]
+    
+    var currentSpeed = 0;
+    
+    @IBOutlet weak var label_songName: UILabel!
+    @IBOutlet weak var songImageView: UIImageView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var speedButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var volumeSlider: UISlider!
+    
+    @IBAction func Play(_ sender: Any) {
+        if !audioPlayer.isPlaying
+        {
+            audioPlayer.play()
+            changePlayButtonTitle()
+        }
+        else
+        {
+            audioPlayer.pause()
+            changePlayButtonTitle()
+        }
+    }
+    
+    @IBAction func speed(_ sender: Any) {
+        if (currentSpeed < speed.count - 1)
+        {
+            currentSpeed += 1
+        }
+        else
+        {
+            currentSpeed = 0
+        }
+        audioPlayer.rate = speed[currentSpeed]
+        audioPlayer.stop()
+        audioPlayer.play()
+        speedButton.setTitle(String(format: "x%.1f", speed[currentSpeed]), for: .normal)
+    }
+    
+    @IBAction func prev(_ sender: Any) {
+        if thisSong >= 1
+        {
+            playSong(songToPlay: songs[thisSong - 1])
+            thisSong -= 1
+            label_songName.text = songs[thisSong]
+        }
+    }
+    
+    @IBAction func next(_ sender: Any) {
+        if thisSong < songs.count - 1
+        {
+            playSong(songToPlay: songs[thisSong + 1])
+            thisSong += 1
+            label_songName.text = songs[thisSong]
+        }
+    }
+    
+    @IBAction func sliderVolume(_ sender: UISlider) {
+        audioPlayer.volume = sender.value
+    }
+    
+    func playSong(songToPlay: String)
+    {
+        do
+        {
+            let audioPath = Bundle.main.path(forResource: songToPlay, ofType: ".mp3")
+            try audioPlayer = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
+            audioPlayer.enableRate = true
+            let utterance = AVSpeechUtterance(string: songToPlay)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            synthesizer.speak(utterance)
+        }
+        catch
+        {
+            print("Table tap error!")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if audioPlaying {
+            playButton.isEnabled = true;
+            speedButton.isEnabled = true;
+            prevButton.isEnabled = true;
+            nextButton.isEnabled = true;
+            volumeSlider.isEnabled = true;
+            
+            changePlayButtonTitle()
+            label_songName.text = songs[thisSong]
+        }
+        else
+        {
+            playButton.isEnabled = false;
+            speedButton.isEnabled = false;
+            prevButton.isEnabled = false;
+            nextButton.isEnabled = false;
+            volumeSlider.isEnabled = false;
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func changePlayButtonTitle()
+    {
+        if !audioPlayer.isPlaying
+        {
+            playButton.setTitle("Play", for: .normal)
+        }
+        else
+        {
+            playButton.setTitle("Pause", for: .normal)
+        }
     }
 
 

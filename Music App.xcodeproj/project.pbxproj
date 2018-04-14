@@ -13,6 +13,11 @@
 		BAFDBCF6208164A00084D4F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBCF4208164A00084D4F5 /* Main.storyboard */; };
 		BAFDBCF8208164A00084D4F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBCF7208164A00084D4F5 /* Assets.xcassets */; };
 		BAFDBCFB208164A00084D4F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBCF9208164A00084D4F5 /* LaunchScreen.storyboard */; };
+		BAFDBD0F208169370084D4F5 /* 03 Take A Chance On Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBD0A208169370084D4F5 /* 03 Take A Chance On Me.mp3 */; };
+		BAFDBD10208169370084D4F5 /* 10 I Wanna Be Sedated.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBD0B208169370084D4F5 /* 10 I Wanna Be Sedated.mp3 */; };
+		BAFDBD11208169370084D4F5 /* 10 New Math.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBD0C208169370084D4F5 /* 10 New Math.mp3 */; };
+		BAFDBD12208169370084D4F5 /* 13 Re_ Your Brains.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBD0D208169370084D4F5 /* 13 Re_ Your Brains.mp3 */; };
+		BAFDBD13208169370084D4F5 /* Rick Astley - Never Gonna Give You Up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAFDBD0E208169370084D4F5 /* Rick Astley - Never Gonna Give You Up.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		BAFDBCF7208164A00084D4F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAFDBCFA208164A00084D4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAFDBCFC208164A00084D4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAFDBD0A208169370084D4F5 /* 03 Take A Chance On Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03 Take A Chance On Me.mp3"; sourceTree = "<group>"; };
+		BAFDBD0B208169370084D4F5 /* 10 I Wanna Be Sedated.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10 I Wanna Be Sedated.mp3"; sourceTree = "<group>"; };
+		BAFDBD0C208169370084D4F5 /* 10 New Math.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10 New Math.mp3"; sourceTree = "<group>"; };
+		BAFDBD0D208169370084D4F5 /* 13 Re_ Your Brains.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "13 Re_ Your Brains.mp3"; sourceTree = "<group>"; };
+		BAFDBD0E208169370084D4F5 /* Rick Astley - Never Gonna Give You Up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rick Astley - Never Gonna Give You Up.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +73,21 @@
 				BAFDBCF7208164A00084D4F5 /* Assets.xcassets */,
 				BAFDBCF9208164A00084D4F5 /* LaunchScreen.storyboard */,
 				BAFDBCFC208164A00084D4F5 /* Info.plist */,
+				BAFDBD09208169370084D4F5 /* Songs */,
 			);
 			path = "Music App";
+			sourceTree = "<group>";
+		};
+		BAFDBD09208169370084D4F5 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				BAFDBD0A208169370084D4F5 /* 03 Take A Chance On Me.mp3 */,
+				BAFDBD0B208169370084D4F5 /* 10 I Wanna Be Sedated.mp3 */,
+				BAFDBD0C208169370084D4F5 /* 10 New Math.mp3 */,
+				BAFDBD0D208169370084D4F5 /* 13 Re_ Your Brains.mp3 */,
+				BAFDBD0E208169370084D4F5 /* Rick Astley - Never Gonna Give You Up.mp3 */,
+			);
+			path = Songs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +151,12 @@
 			files = (
 				BAFDBCFB208164A00084D4F5 /* LaunchScreen.storyboard in Resources */,
 				BAFDBCF8208164A00084D4F5 /* Assets.xcassets in Resources */,
+				BAFDBD11208169370084D4F5 /* 10 New Math.mp3 in Resources */,
+				BAFDBD0F208169370084D4F5 /* 03 Take A Chance On Me.mp3 in Resources */,
+				BAFDBD10208169370084D4F5 /* 10 I Wanna Be Sedated.mp3 in Resources */,
 				BAFDBCF6208164A00084D4F5 /* Main.storyboard in Resources */,
+				BAFDBD12208169370084D4F5 /* 13 Re_ Your Brains.mp3 in Resources */,
+				BAFDBD13208169370084D4F5 /* Rick Astley - Never Gonna Give You Up.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KKTK8WHBM5;
 				INFOPLIST_FILE = "Music App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.bcit.Music-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KKTK8WHBM5;
 				INFOPLIST_FILE = "Music App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.bcit.Music-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
