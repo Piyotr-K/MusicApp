@@ -71,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUV-bI-Qkd">
-                                <rect key="frame" x="16" y="96" width="343" height="343"/>
+                                <rect key="frame" x="16" y="96" width="343" height="292"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7t-IY-odw">
@@ -125,16 +125,37 @@
                                     <action selector="sliderVolume:" destination="8rJ-Kc-sve" eventType="valueChanged" id="AiX-Z1-lNv"/>
                                 </connections>
                             </slider>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aK4-1q-BKw">
+                                <rect key="frame" x="16" y="435" width="343" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rb-9g-LcV">
+                                <rect key="frame" x="16" y="445" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpV-w5-pEa">
+                                <rect key="frame" x="317" y="444" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="currentTimeLabel" destination="4Rb-9g-LcV" id="5cM-bE-fAX"/>
+                        <outlet property="durationTimeLabel" destination="FpV-w5-pEa" id="fNy-Y2-w63"/>
                         <outlet property="label_songName" destination="n5e-dl-kSi" id="6eP-z4-RIV"/>
                         <outlet property="nextButton" destination="c1z-ao-gMd" id="0GL-tC-PAb"/>
                         <outlet property="playButton" destination="P7t-IY-odw" id="96V-dY-QJZ"/>
                         <outlet property="prevButton" destination="odU-wr-TYH" id="df5-qu-LcG"/>
+                        <outlet property="progressView" destination="aK4-1q-BKw" id="rsc-3S-P46"/>
                         <outlet property="songImageView" destination="mUV-bI-Qkd" id="Dbt-tL-nkQ"/>
                         <outlet property="speedButton" destination="rlD-2j-Rmp" id="g6j-PG-ybf"/>
                         <outlet property="volumeSlider" destination="Qtv-ug-Xjb" id="AeC-5i-hm7"/>

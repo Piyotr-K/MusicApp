@@ -21,6 +21,9 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var durationTimeLabel: UILabel!
     
     @IBAction func Play(_ sender: Any) {
         if !audioPlayer.isPlaying
@@ -79,9 +82,16 @@ class SecondViewController: UIViewController {
             let audioPath = Bundle.main.path(forResource: songToPlay, ofType: ".mp3")
             try audioPlayer = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
             audioPlayer.enableRate = true
+            
             let utterance = AVSpeechUtterance(string: songToPlay)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
             synthesizer.speak(utterance)
+            
+            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateAudioProgressView), userInfo: nil, repeats: true)
+            progressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: false)
+            
+            durationTimeLabel.text = audioPlayer.duration.description
+            currentTimeLabel.text = audioPlayer.currentTime.description
         }
         catch
         {
@@ -100,6 +110,9 @@ class SecondViewController: UIViewController {
             
             changePlayButtonTitle()
             label_songName.text = songs[thisSong]
+            
+            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateAudioProgressView), userInfo: nil, repeats: true)
+            progressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: false)
         }
         else
         {
@@ -126,6 +139,16 @@ class SecondViewController: UIViewController {
         else
         {
             playButton.setTitle("Pause", for: .normal)
+        }
+    }
+    
+    @objc func updateAudioProgressView()
+    {
+        if audioPlayer.isPlaying
+        {
+            // Update progress
+            progressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
+            currentTimeLabel.text = audioPlayer.currentTime.description
         }
     }
 
